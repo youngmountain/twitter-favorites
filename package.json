@@ -1,0 +1,39 @@
+{
+  "name": "twitter-favorites",
+  "description": "retrieve twitter favorites",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kwakayama/twitter-favorites",
+  "bugs": "https://github.com/kwakayama/twitter-favorites/issues",
+  "license": "MIT",
+  "main": "lib/twitter-favorites.js",
+  "author": {
+    "name": "Kentaro Wakayama",
+    "email": "wakayama.kentaro@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kwakayama/twitter-favorites"
+  },
+  "keywords":[],
+  "dependencies": {
+    "lodash": "2.4.1",
+    "q": "2.0.1",
+    "debug": "0.8.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.6.2",
+    "gulp-bump": "^0.1.8",
+    "gulp-jscs": "^0.4.2",
+    "gulp-jshint": "^1.5.5",
+    "gulp-mocha": "^0.4.1",
+    "gulp-istanbul": "^0.2.0",
+    "coveralls": "^2.10.0",
+    "should": "^3.3.1",
+    "jshint-stylish": "^0.2.0",
+    "gulp-load-plugins": "^0.5.1"
+  },
+  "scripts": {
+    "coveralls": "gulp test && cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test": "gulp test"
+  }
+}
