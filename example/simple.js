@@ -8,18 +8,19 @@
 
 'use strict';
 
-// Following the 'Node.js require(s) best practices' by
-// http://www.mircozeiss.com/node-js-require-s-best-practices/
-
-// // Nodejs libs
-// var fs = require('fs'),
-//
-// // External libs
-// debug = require('debug'),
-//
-// // Internal libs
-// data = require('./data.js');
-
 var twitterFavorites = require('../');
 
-twitterFavorites.awesome(); // "awesome"
+var oauth = {
+  consumer_key: 'CONSUMER_KEY',
+  consumer_secret: 'CONSUMER_SECRET',
+  token: 'TOKEN',
+  token_secret: 'TOKEN_SECRET'
+};
+
+twitterFavorites('kwakayama', oauth, function(err, result) {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log(result);
+});
