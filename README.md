@@ -55,9 +55,9 @@ Copyright (c) 2014 Kentaro Wakayama. Licensed under the MIT license.
 
 [npm-url]: https://npmjs.org/package/twitter-favorites
 [npm-image]: https://badge.fury.io/js/twitter-favorites.svg
-[travis-url]: https://travis-ci.org/kwakayama/twitter-favorites
-[travis-image]: https://travis-ci.org/kwakayama/twitter-favorites.svg?branch=master
-[daviddm-url]: https://david-dm.org/kwakayama/twitter-favorites.svg?theme=shields.io
-[daviddm-image]: https://david-dm.org/kwakayama/twitter-favorites
-[coveralls-url]: https://coveralls.io/r/kwakayama/twitter-favorites
-[coveralls-image]: https://coveralls.io/repos/kwakayama/twitter-favorites/badge.png
+[travis-url]: https://travis-ci.org/youngmountain/twitter-favorites
+[travis-image]: https://travis-ci.org/youngmountain/twitter-favorites.svg?branch=master
+[daviddm-url]: https://david-dm.org/youngmountain/twitter-favorites.svg?theme=shields.io
+[daviddm-image]: https://david-dm.org/youngmountain/twitter-favorites
+[coveralls-url]: https://coveralls.io/r/youngmountain/twitter-favorites
+[coveralls-image]: https://coveralls.io/repos/youngmountain/twitter-favorites/badge.png
