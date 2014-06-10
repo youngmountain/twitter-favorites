@@ -14,11 +14,13 @@
     "type": "git",
     "url": "https://github.com/kwakayama/twitter-favorites"
   },
-  "keywords":[],
+  "keywords": [],
   "dependencies": {
+    "debug": "0.8.1",
     "lodash": "2.4.1",
     "q": "2.0.1",
-    "debug": "0.8.1"
+    "qs": "^0.6.6",
+    "request": "^2.36.0"
   },
   "devDependencies": {
     "gulp": "^3.6.2",

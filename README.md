@@ -1,4 +1,4 @@
-# twitter-favorites 
+# twitter-favorites
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image] [![Coverage Status][coveralls-image]][coveralls-url]
 
 retrieve twitter favorites
@@ -15,7 +15,21 @@ $ npm install --save twitter-favorites
 
 ```javascript
 var twitterFavorites = require('twitter-favorites');
-twitterFavorites.awesome(); // "awesome"
+
+var oauth = {
+  consumer_key: 'CONSUMER_KEY',
+  consumer_secret: 'CONSUMER_SECRET',
+  token: 'TOKEN',
+  token_secret: 'TOKEN_SECRET'
+};
+
+twitterFavorites('kwakayama', oauth, function(err, result) {
+  if(err) {
+    console.log(err);
+    return;
+  }
+  console.log(result);
+});
 ```
 
 ## API
