@@ -23,16 +23,17 @@
     "request": "^2.36.0"
   },
   "devDependencies": {
+    "coveralls": "^2.10.0",
     "gulp": "^3.6.2",
     "gulp-bump": "^0.1.8",
+    "gulp-istanbul": "^0.2.0",
     "gulp-jscs": "^0.4.2",
     "gulp-jshint": "^1.5.5",
+    "gulp-load-plugins": "^0.5.1",
     "gulp-mocha": "^0.4.1",
-    "gulp-istanbul": "^0.2.0",
-    "coveralls": "^2.10.0",
-    "should": "^3.3.1",
     "jshint-stylish": "^0.2.0",
-    "gulp-load-plugins": "^0.5.1"
+    "should": "^3.3.1",
+    "sinon": "^1.10.2"
   },
   "scripts": {
     "coveralls": "gulp test && cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",

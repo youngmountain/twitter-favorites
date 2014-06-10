@@ -8,7 +8,7 @@
 
 'use strict';
 
-var twitterFavorites = require('../');
+var TwitterFavorites = require('../');
 
 var oauth = {
   consumer_key: 'CONSUMER_KEY',
@@ -17,10 +17,10 @@ var oauth = {
   token_secret: 'TOKEN_SECRET'
 };
 
-twitterFavorites('kwakayama', oauth, function(err, result) {
-  if (err) {
-    console.log(err);
-    return;
-  }
+var twitter = new TwitterFavorites(oauth);
+
+twitter.getFavorites('kwakayama').then(function(result) {
   console.log(result);
-});
+}).catch(function(err) {
+  console.log(err);
+})
