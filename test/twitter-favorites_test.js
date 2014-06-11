@@ -5,6 +5,7 @@ var querystring = require('querystring');
 var TwitterFavorites = require('../lib/twitter-favorites.js');
 var sinon = require('sinon');
 var request = require('request');
+var should = require('should');
 var _ = require('lodash');
 
 describe('twitterApi', function() {

@@ -1,6 +1,7 @@
 'use strict';
 
 var Twitter = require('../');
+var should = require('should');
 
 describe('setup', function () {
 
