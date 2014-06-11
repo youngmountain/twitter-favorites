@@ -13,15 +13,9 @@ describe('twitterApi', function() {
   var twitter = null;
   var dummyList = [];
 
-  // for (var i = 500 - 1; i >= 0; i--) {
-  //   dummyList.push({
-  //     id: 1000 + i
-  //   });
-  // }
-
-  for (var i = 0; i < 500; i++) {
+  for (var i = 500; i >= 0; i--) {
     dummyList.push({
-      id: 1000 + i
+      id: i
     });
   }
 
@@ -31,9 +25,9 @@ describe('twitterApi', function() {
       var result = [];
       var urlData = url.parse(params.url);
       var queryParams = querystring.parse(urlData.query);
-      console.log(queryParams);
-      var limit = queryParams.count;
+      var limit = parseInt(queryParams.count, 10);
       var index;
+
       if (!queryParams.max_id) {
         index = 0;
       } else {
@@ -41,7 +35,7 @@ describe('twitterApi', function() {
         var found = _.findWhere(dummyList, {
           id: maxId
         });
-        index = found.id - 1000 + 1;
+        index = dummyList.length - found.id;
       }
       result = dummyList.slice(index, index + limit);
       cb(null, null, result);
@@ -57,8 +51,7 @@ describe('twitterApi', function() {
     twitter.getFavorites('username')
       .then(function(stars) {
         request.get.called.should.be.true;
-        request.get.calledThrice.should.be.true;
-        stars.should.have.a.lengthOf(500);
+        stars.should.have.a.lengthOf(dummyList.length);
         cb();
       }).
     catch (cb);
@@ -70,14 +63,4 @@ describe('twitterApi', function() {
     }).should.
     throw ('You must provide a user.');
   });
-
-  // TODO implement since_id param
-  // it('should return a subset of starred repos', function (cb) {
-  //   twitter.getFavorites('username', 1000)
-  //   .then(function(stars) {
-  //     twitter.getFavoritesFromUser.called.should.be.true;
-  //     stars.should.have.a.lengthOf(2);
-  //     cb();
-  //   }).catch(cb);
-  // });
 });

@@ -23,4 +23,4 @@ twitter.getFavorites('kwakayama').then(function(result) {
   console.log(result);
 }).catch(function(err) {
   console.log(err);
-})
+});
