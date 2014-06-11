@@ -46,12 +46,34 @@ describe('twitterApi', function() {
     request.get.restore();
   });
 
-  it('should return a list of all starred repos', function(cb) {
+  it('should return a list of all favorites', function(cb) {
 
     twitter.getFavorites('username')
       .then(function(stars) {
         request.get.called.should.be.true;
         stars.should.have.a.lengthOf(dummyList.length);
+        cb();
+      }).
+    catch (cb);
+  });
+
+  it('should return a subset of favorites', function (cb) {
+
+    twitter.getFavorites('username', dummyList.length - 50)
+      .then(function(stars) {
+        request.get.called.should.be.true;
+        stars.should.have.a.lengthOf(49);
+        cb();
+      }).
+    catch (cb);
+  });
+
+  it('should return a subset of favorites', function (cb) {
+
+    twitter.getFavorites('username', dummyList.length - 450)
+      .then(function(stars) {
+        request.get.called.should.be.true;
+        stars.should.have.a.lengthOf(449);
         cb();
       }).
     catch (cb);
