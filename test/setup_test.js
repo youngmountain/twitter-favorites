@@ -1,14 +1,13 @@
 'use strict';
 
 var Twitter = require('../');
-var assert = require('should');
 
 describe('setup', function () {
 
   it('should not be able to initialize without a oauth object.', function () {
     (function(){
       new Twitter();
-    }).should.throw('You must provide a oauth object.')
+    }).should.throw('You must provide a oauth object.');
   });
 
   it('should be able to initialize with oauth', function () {
