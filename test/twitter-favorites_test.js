@@ -13,11 +13,13 @@ describe('twitterApi', function() {
   var twitter = null;
   var dummyList = [];
 
-  for (var i = 500; i >= 0; i--) {
-    dummyList.push({
-      id: i
-    });
-  }
+  before(function() {
+    for (var i = 555; i > 0; i--) {
+      dummyList.push({
+        id: i
+      });
+    }
+  });
 
   beforeEach(function() {
     twitter = new TwitterFavorites({});
@@ -35,7 +37,7 @@ describe('twitterApi', function() {
         var found = _.findWhere(dummyList, {
           id: maxId
         });
-        index = dummyList.length - found.id;
+        index = dummyList.length - found.id + 1;
       }
       result = dummyList.slice(index, index + limit);
       cb(null, null, result);
@@ -46,7 +48,25 @@ describe('twitterApi', function() {
     request.get.restore();
   });
 
-  it('should return a list of all favorites', function(cb) {
+  it('should not be able to initialize without a oauth object.', function () {
+    (function(){
+      new TwitterFavorites();
+    }).should.throw('You must provide a oauth object.');
+  });
+
+  it('should be able to initialize with oauth', function () {
+    (function(){
+      var oauth = {
+        consumer_key: 'CONSUMER_KEY',
+        consumer_secret: 'CONSUMER_SECRET',
+        token: 'TOKEN',
+        token_secret: 'TOKEN_SECRET'
+      };
+      new TwitterFavorites(oauth);
+    }).should.not.throw();
+  });
+
+  it('should return a list of favorites', function(cb) {
 
     twitter.getFavorites('username')
       .then(function(stars) {
@@ -55,34 +75,5 @@ describe('twitterApi', function() {
         cb();
       }).
     catch (cb);
-  });
-
-  it('should return a subset of favorites', function (cb) {
-
-    twitter.getFavorites('username', dummyList.length - 50)
-      .then(function(stars) {
-        request.get.called.should.be.true;
-        stars.should.have.a.lengthOf(49);
-        cb();
-      }).
-    catch (cb);
-  });
-
-  it('should return a subset of favorites', function (cb) {
-
-    twitter.getFavorites('username', dummyList.length - 450)
-      .then(function(stars) {
-        request.get.called.should.be.true;
-        stars.should.have.a.lengthOf(449);
-        cb();
-      }).
-    catch (cb);
-  });
-
-  it('should throw an error when no username is given', function() {
-    (function() {
-      twitter.getFavorites();
-    }).should.
-    throw ('You must provide a user.');
   });
 });

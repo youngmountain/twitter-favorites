@@ -11,16 +11,16 @@
 var TwitterFavorites = require('../');
 
 var oauth = {
-  consumer_key: 'CONSUMER_KEY',
-  consumer_secret: 'CONSUMER_SECRET',
-  token: 'TOKEN',
-  token_secret: 'TOKEN_SECRET'
+  consumer_key: 'RBWHCeswinl48avYevcwjw',
+  consumer_secret: '8M2dydAq4NtEpChgR9Tmh4UxJVrZgFTKs4Dv6PjQc',
+  token: '104607981-KuKnYviZwqnXNFOTpSYqhm0LTRnf9mRwJScd1Xj9',
+  token_secret: 'kJvwcU7B5XPfakac8Fm1E5cJo7bigoJABzkZ5ZvPEUIec'
 };
 
 var twitter = new TwitterFavorites(oauth);
 
-twitter.getFavorites('kwakayama').then(function(result) {
-  console.log(result);
+twitter.getFavorites('zucchinies').then(function(result) {
+  console.log(result.length);
 }).catch(function(err) {
   console.log(err);
 });
